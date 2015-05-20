@@ -66,7 +66,7 @@ return array(
                 'blog/post/<id:\d+>/<title:.*?>'=>'blog/post/view',
                 'blog/posts/<tag:.*?>'=>'blog/post/index',
 			),
-		),
+		),54545
 
 		'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
