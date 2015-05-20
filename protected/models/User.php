@@ -11,8 +11,10 @@
  * @property string $username
  * @property string $password
  * @property string $creation_time
- * @property integer $group
+ * @property integer $group_id
  * @property integer $active
+ * @property integer $last_login
+ *
  *
  * The followings are the available model relations:
  * @property GroupTypes $group0
@@ -41,7 +43,7 @@ class User extends CActiveRecord
 		return array(
 			array('email, username,name,password', 'required'),
             array('email_repeat','compare','compareAttribute'=>'email','message'=>Yii::t('user','Email not Match')),//Not in BD
-			array('group, active', 'numerical', 'integerOnly'=>true),
+			array('group_id, active', 'numerical', 'integerOnly'=>true),
 			array('name, last_name, email, username', 'length', 'max'=>45),
 			array('password','length', 'max'=>255),
             array('password_repeat', 'compare', 'compareAttribute'=>'password', 'message'=>Yii::t('user', 'Password not Match')),//Not in BD
@@ -79,7 +81,7 @@ class User extends CActiveRecord
 			'password' => 'Password',
             'password_repeat'=>Yii::t('user', 'Repeat Password'),
 			'creation_time' => 'Creation Time',
-			'group' => 'Group',
+			'group_id' => 'Group',
 			'active' => 'Active',
 
 		);

@@ -23,7 +23,7 @@ class SiteController extends Controller
 
             array('allow', //allow authenticated user to perform 'select' and 'contact' actions
                 'actions'=>array('select','contact','captcha','page'),
-                'users'=>array('Alexiel'),
+                'users'=>array('admin'),
 
             ),
             array('deny',  // deny all users

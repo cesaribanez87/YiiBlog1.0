@@ -35,7 +35,7 @@
                     if (empty($validate)){
                         $access=null;
                     }
-                    elseif ($validate=="Alexiel"){
+                    elseif ($validate=="admin"){
                         $access="Admin";
                     }
                     elseif ($validate=="demo"){
