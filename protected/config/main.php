@@ -16,24 +16,23 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+        'application.extensions.*',
 	),
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
 
-        /*'gii'=>array(
+        'gii'=>array(
             'generatorPaths'=>array(
                 'bootstrap.gii',
             ),
-
-
-        ),*/
-		'gii'=>array(
+        ),
+		/*'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'akaricer455',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
-		),
+		),*/
         'blog'=>array(
             'defaultController'=>'post',
             'params'=>array(

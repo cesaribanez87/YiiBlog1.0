@@ -41,6 +41,12 @@ class Bootstrap extends CApplicationComponent
 
 	protected $_assetsUrl;
 
+    public function init() {
+        $this->registerAllCss();
+        $this->registerJs();
+        parent::init();
+    }
+
 	/**
 	 * Registers the Bootstrap CSS.
 	 */

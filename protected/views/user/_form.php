@@ -56,9 +56,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'group'); ?>
-		<?php echo $form->textField($model,'group'); ?>
-		<?php echo $form->error($model,'group'); ?>
+		<?php echo $form->labelEx($model,'group_id'); ?>
+		<?php echo $form->textField($model,'group_id'); ?>
+		<?php echo $form->error($model,'group_id'); ?>
 	</div>
 
 	<div class="row">

@@ -17,13 +17,13 @@ class SiteController extends Controller
 
         return array(
             array('allow',  // allow all users to perform 'index' action
-                'actions'=>array('index','login','signup','logout'),
+                'actions'=>array('index','login','signup','logout','page'),
                 'users'=>array('*'),
             ),
 
             array('allow', //allow authenticated user to perform 'select' and 'contact' actions
-                'actions'=>array('select','contact','captcha','page'),
-                'users'=>array('admin'),
+                'actions'=>array('select','contact','captcha'),
+                'users'=>array('@'),
 
             ),
             array('deny',  // deny all users
@@ -69,7 +69,13 @@ class SiteController extends Controller
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		//$this->render('index');
-        $this->render('index');
+
+        $model=Post::model()->findAll(
+            array(
+                'with'=>array('category.posts')
+            )
+        );
+        $this->render('index',array('model'=>$model));
 	}
 
 	/**

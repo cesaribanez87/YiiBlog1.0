@@ -4,17 +4,76 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
-<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
+<style>
+    #content{
+        height:2500;
+    }
+    #header {
+        background-color:black;
+        color:white;
+        text-align:center;
+        padding:5px;
+    }
+    #nav {
+        line-height:30px;
+        background-color:#eeeeee;
+        height:auto;
+        width:300px;
+        float:right;
+        padding:5px;
+    }
+    #section {
+        height:500px;
+        width:800px;
+        float:left;
+        padding:10px;
+    }
 
-<p>Congratulations! You have successfully created your Yii application.</p>
+    }
+</style>
+<body>
+    <div id="content">
+        <div id="header">
+            <h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
+        </div>
 
-<p>You may change the content of this page by modifying the following two files:</p>
-<ul>
-	<li>View file: <code><?php echo __FILE__; ?></code></li>
-	<li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
-</ul>
+        <div id="nav">
+            <hr>
+            <h4 align="center">About Me</h4>
+            <hr style="border-color: black">
+            <ul>
+                <li type="square">Facebook</li>
+                <li type="square"><a href="https://twitter.com/LicIbanez87" target="_blank">Twitter+</a></li>
+                <li type="square"><a href="https://plus.google.com/113501108292122101791" target="_blank">Google+</a></li>
+                <li type="square"><a href="https://www.linkedin.com/pub/cesar-alejandro-iba%C3%B1ez-escoto/67/6a5/9bb" target="_blank">LinkedIn</a></li>
+            </ul>
+            <h5 align="center">Tags</h5>
+            Not Implemented Yet.
+            <hr style="border-color: black">
+            <h5 align="center">Related Post</h5>
+            Not Implemented Yet.
+            <hr style="border-color: black">
+            <h5 align="center">GitHub Repositories</h5>
+            <ul>
+                <li type="square">Android Fundamentals</li>
+                <li type="square">Yii(Blog)</li>
+                <li type="square">Unity (Soon)</li>
+                <li type="square">Jquery Fundamentals (Soon)</li>
+            </ul>
+            <hr style="border-color: black">
+            <h5 align="center">Statistics</h5>
+            Not Implemented Yet.
+            <hr style="border-color: black">
+        </div>
 
-<p>For more details on how to further develop this application, please read
-the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>
+        <div id="section">
+            <h2 align="center">Recent Post</h2>
+            <hr style="border-color: black">
+            <?php foreach($model as $post): ?>
+                <?php $this->renderPartial('/post/single',array('post'=>$post)); ?>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+</body>
+

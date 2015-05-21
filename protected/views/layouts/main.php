@@ -1,4 +1,15 @@
 <?php /* @var $this Controller */ ?>
+<style>
+    #footer {
+        background-color:black;
+        color:white;
+        clear:both;
+        text-align:center;
+        padding:5px;
+        height: auto;
+
+    }
+</style>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -9,7 +20,7 @@
     echo Yii::app()->bootstrap->registerAllCss();
     echo Yii::app()->bootstrap->registerCoreScripts();
     ?>
-
+    <?php echo Yii::app()->bootstrap->init();?>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
@@ -35,7 +46,7 @@
                     if (empty($validate)){
                         $access=null;
                     }
-                    elseif ($validate=="admin"){
+                    elseif ($validate=="CesarIbanez"){
                         $access="Admin";
                     }
                     elseif ($validate=="demo"){
@@ -52,6 +63,8 @@
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
+                array('label' => 'Post', 'url' => array('/post/index'),'visible'=>Yii::app()->user->id=='CesarIbanez'),
+                array('label' =>'Category','url'=>array('/category/index'),'visible'=>Yii::app()->user->id=='CesarIbanez'),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.'['.$access.']'.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'SignUp', 'url'=>array('/site/SignUp'),'visible'=>Yii::app()->user->isGuest)
@@ -73,6 +86,9 @@
 </div>
 	<?php echo $content; ?>
 
+</div>
+<div id="footer">
+    Copyright © 2015 Alexiel's Store.com
 </div>
 </body>
 </html>
