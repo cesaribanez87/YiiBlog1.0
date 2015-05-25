@@ -6,7 +6,7 @@ $this->pageTitle=Yii::app()->name;
 
 <style>
     #content{
-        height:2500;
+        height:5000;
     }
     #header {
         background-color:black;
@@ -51,7 +51,9 @@ $this->pageTitle=Yii::app()->name;
             Not Implemented Yet.
             <hr style="border-color: black">
             <h5 align="center">Related Post</h5>
-            Not Implemented Yet.
+            <?php if(!empty($model)): ?>
+                <?php $this->renderPartial('/post/related_posts',array('post'=>$model)); ?>
+            <?php endif;?>
             <hr style="border-color: black">
             <h5 align="center">GitHub Repositories</h5>
             <ul>

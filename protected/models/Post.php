@@ -10,6 +10,7 @@
  * @property string $author_name
  * @property integer $category_id
  * @property string $date
+ * @property string $modify_date
  *
  * The followings are the available model relations:
  * @property Category $category
@@ -37,7 +38,7 @@ class Post extends CActiveRecord
 			array('post_content, date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('post_ID, post_title, post_content, category_id, date', 'safe', 'on'=>'search'),
+			array('post_ID, post_title, post_content, category_id, date,modify_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -64,6 +65,7 @@ class Post extends CActiveRecord
 			'post_content' => 'Post Content',
 			'category_id' => 'Category',
 			'date' => 'Date',
+            'modify_date' => 'Last Update',
 		);
 	}
 

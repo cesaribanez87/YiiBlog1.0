@@ -71,7 +71,9 @@ class PostController extends Controller
 		{
 			$model->attributes=$_POST['Post'];
 			if($model->save())
+                $date=new DateTime();
                 $model->author_name=Yii::app()->user->id;
+                $model->modify_date=$date->getTimestamp();
                 $model->save();
 				$this->redirect(array('view','id'=>$model->post_ID));
 		}
@@ -97,7 +99,8 @@ class PostController extends Controller
 		{
 			$model->attributes=$_POST['Post'];
 			if($model->save())
-                $model->author_name=Yii::app()->user->id;
+                $date=new DateTime();
+                $model->modify_date=$date->getTimestamp();
                 $model->save();
 				$this->redirect(array('view','id'=>$model->post_ID));
 		}
