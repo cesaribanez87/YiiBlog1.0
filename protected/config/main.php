@@ -29,7 +29,7 @@ return array(
         ),
 		/*'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'akaricer455',
+			'password'=>'cocos2015',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),*/
@@ -49,6 +49,9 @@ return array(
           'class'=>'bootstrap.components.Bootstrap',
         ),
 
+        'hitCounter'=>array(
+          'class'=>'hitCounter.hitCounter'
+        ),
 
 		'user'=>array(
 			// enable cookie-based authentication
@@ -67,9 +70,9 @@ return array(
 			),
 		),
 
-		'db'=>array(
+		/*'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-		),
+		),*/
 		// uncomment the following to use a MySQL database
 
 		'db'=>array(
@@ -105,6 +108,6 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'cesaribanez87@hotmail.com',
+		'adminEmail'=>'contact@hikarinotes.com',
 	),
 );
