@@ -1,6 +1,5 @@
 <?php
-phpinfo();
-exit;
+
 /* @var $this SiteController */
 
 $this->pageTitle=Yii::app()->name;
