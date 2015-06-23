@@ -49,7 +49,11 @@ return array(
           'class'=>'bootstrap.components.Bootstrap',
         ),
 
-       'user'=>array(
+        'hitCounter'=>array(
+          'class'=>'hitCounter.hitCounter'
+        ),
+
+		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
