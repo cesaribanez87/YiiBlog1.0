@@ -79,7 +79,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=db_hikari',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => 'root',
+			'password' => 'c87ibti88ak91',
 			'charset' => 'utf8',
 		),
 
