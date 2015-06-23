@@ -1,5 +1,5 @@
 <?php
-class HCounter {
+class VCounter {
 
     //Function to return the existing hit count and increase the hit count
     function getCount() {

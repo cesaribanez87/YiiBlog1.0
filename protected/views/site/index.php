@@ -65,21 +65,36 @@ $this->pageTitle=Yii::app()->name;
             </ul>
             <hr style="border-color: black">
             <h5 align="center">Statistics</h5>
-            <?php
-            $this->widget('application.extensions.hitCounter.hitCounter',
-                array(
-                    'options' => array(
-                        'ip',
-                        'hits' => true,
-                        'country',    //Country of the client
-                        'org',        //Organization
-                        'hostname',   //Host Name
-                        'city',       //City
-                        'region',     //Region
-                        'loc'         //Location code of the client
-                    )
-                ));
-            ?>
+            <div align="center">
+                <label><b>Total Visits</b><label>
+                <br>
+                <label><font size="50"><b><?php echo $hits['hits']; ?></b></font></label>
+            </div>
+            <?php if($hits['info']->ip!='::1'): ?>
+                <div align="left">
+                    <ul>
+                        <li type="circle">
+                            <label><b>Your IP: </b><?php echo $hits['info']->ip; ?></label>
+                        </li>
+                        <li type="circle">
+                            <label><b>Hostname: </b><?php echo $hits['info']->hostname; ?></label>
+                        </li>
+                        <li type="circle">
+                            <label><b>City: </b><?php echo $hits['info']->city; ?></label>
+                        </li>
+                        <li type="circle">
+                            <label><b>Country: </b><?php echo $hits['info']->region; ?></label>
+                        </li>
+                        <li type="circle">
+                            <label><b>Organiation: </b><?php echo $hits['info']->org; ?></label>
+                        </li>
+                    </ul>
+                </div>
+            <?php else: ?>
+                <div align="center">
+                    <label>Please Run on a Live server to get statistics.</label>
+                </div>
+            <?php endif; ?>
             <hr style="border-color: black">
         </div>
 

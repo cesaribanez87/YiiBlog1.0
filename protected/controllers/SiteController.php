@@ -75,7 +75,11 @@ class SiteController extends Controller
                 'with'=>array('category.posts')
             )
         );
-        $this->render('index',array('model'=>$model));
+
+        $hits= new SiteCounter();
+        $vInfo=$hits->getInfo();
+
+        $this->render('index',array('model'=>$model,'hits'=>$vInfo));
 	}
 
 	/**
