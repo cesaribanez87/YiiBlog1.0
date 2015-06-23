@@ -27,7 +27,7 @@ class Controller extends CController
             array('allow',  // allow all users to perform 'index' and 'view' actions
                 'controllers'=>array("site"),
                 'actions'=>array('index','contact','logout'),
-                'users'=>array('@'),
+                'users'=>array('*'),
             ),
 
         );
