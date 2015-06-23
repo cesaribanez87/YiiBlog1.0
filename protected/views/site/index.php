@@ -65,21 +65,7 @@ $this->pageTitle=Yii::app()->name;
             </ul>
             <hr style="border-color: black">
             <h5 align="center">Statistics</h5>
-            <?php
-            $this->widget('application.extensions.hitCounter.hitCounter',
-                array(
-                    'options' => array(
-                        'ip',
-                        'hits' => true,
-                        'country',    //Country of the client
-                        'org',        //Organization
-                        'hostname',   //Host Name
-                        'city',       //City
-                        'region',     //Region
-                        'loc'         //Location code of the client
-                    )
-                ));
-            ?>
+                Not Implemented Yet.
             <hr style="border-color: black">
         </div>
 
