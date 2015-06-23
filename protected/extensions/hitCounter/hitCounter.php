@@ -8,6 +8,18 @@ class hitCounter extends CWidget {
     public $options = array();
     private $baseUrl;
 
+    public function accessRules()
+    {
+
+        return array(
+            array('allow',  // allow all users to perform 'index' action
+                'actions'=>array('init','run','publishAssets','registerClientScripts'),
+                'users'=>array('*'),
+            ),
+
+        );
+    }
+
     // Function to init the widget
     public function init() {
         // Include the class file
