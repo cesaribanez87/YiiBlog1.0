@@ -14,11 +14,11 @@ class SiteController extends Controller
 
     public function accessRules()
     {
-
+        //TODO: change this to public.
         return array(
             array('allow',  // allow all users to perform 'index' action
                 'actions'=>array('index','login','signup','logout','page'),
-                'users'=>array('*'),
+                'users'=>array('CesarIbanez'),//For the moment.
             ),
 
             array('allow', //allow authenticated user to perform 'select' and 'contact' actions

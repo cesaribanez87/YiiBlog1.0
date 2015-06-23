@@ -80,13 +80,13 @@ $this->pageTitle=Yii::app()->name;
                             <label><b>Hostname: </b><?php echo $hits['info']->hostname; ?></label>
                         </li>
                         <li type="circle">
-                            <label><b>City: </b><?php echo $hits['info']->city; ?></label>
+                            <label><b>City: </b><?php echo !empty($hits['info']->city)?$hits['info']->city:'N/A'; ?></label>
                         </li>
                         <li type="circle">
-                            <label><b>Country: </b><?php echo $hits['info']->region; ?></label>
+                            <label><b>Country: </b><?php echo !empty($hits['info']->country)?$hits['info']->country:'N/A'; ?></label>
                         </li>
                         <li type="circle">
-                            <label><b>Organiation: </b><?php echo $hits['info']->org; ?></label>
+                            <label><b>Organization: </b><?php echo $hits['info']->org; ?></label>
                         </li>
                     </ul>
                 </div>
