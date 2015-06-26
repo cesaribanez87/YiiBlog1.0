@@ -19,13 +19,13 @@ $this->pageTitle=Yii::app()->name;
         line-height:30px;
         background-color:#eeeeee;
         height:auto;
-        width:300px;
+        width:20%;
         float:right;
         padding:5px;
     }
     #section {
         height:500px;
-        width:800px;
+        width:75%;
         float:left;
         padding:10px;
     }
@@ -33,11 +33,17 @@ $this->pageTitle=Yii::app()->name;
     }
 </style>
 <body>
-    <div id="content">
+    <div id="content" class="col-md-8">
         <div id="header">
             <h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
         </div>
-
+        <div id="section">
+            <h2 align="center">Recent Post</h2>
+            <hr style="border-color: black">
+            <?php foreach($model as $post): ?>
+                <?php $this->renderPartial('/post/single',array('post'=>$post)); ?>
+            <?php endforeach; ?>
+        </div>
         <div id="nav">
             <hr>
             <h4 align="center">About Me</h4>
@@ -86,7 +92,7 @@ $this->pageTitle=Yii::app()->name;
                             <label><b>Country: </b><?php echo !empty($hits['info']->country)?$hits['info']->country:'N/A'; ?></label>
                         </li>
                         <li type="circle">
-                            <label><b>Organization: </b><?php echo $hits['info']->org; ?></label>
+                            <label><b>Organization: </b><?php echo !empty($hits['info']->org)?$hits['info']->org:'N/A'; ?></label>
                         </li>
                     </ul>
                 </div>
@@ -96,14 +102,6 @@ $this->pageTitle=Yii::app()->name;
                 </div>
             <?php endif; ?>
             <hr style="border-color: black">
-        </div>
-
-        <div id="section">
-            <h2 align="center">Recent Post</h2>
-            <hr style="border-color: black">
-            <?php foreach($model as $post): ?>
-                <?php $this->renderPartial('/post/single',array('post'=>$post)); ?>
-            <?php endforeach; ?>
         </div>
     </div>
 

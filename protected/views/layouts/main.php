@@ -68,19 +68,19 @@
                     }
                     ?>
 
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'htmlOptions'=>array('class'=>"nav navbar-nav"),
-            'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-                array('label' => 'Post', 'url' => array('/post/index'),'visible'=>Yii::app()->user->id=='CesarIbanez'),
-                array('label' =>'Category','url'=>array('/category/index'),'visible'=>Yii::app()->user->id=='CesarIbanez'),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.'['.$access.']'.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-                array('label'=>'SignUp', 'url'=>array('/site/SignUp'),'visible'=>Yii::app()->user->isGuest)
-			),
-		)); ?>
+                    <?php $this->widget('zii.widgets.CMenu',array(
+                        'htmlOptions'=>array('class'=>"nav navbar-nav"),
+                        'items'=>array(
+                            array('label'=>'Home', 'url'=>array('/site/index')),
+                            array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
+                            array('label'=>'Contact', 'url'=>array('/site/contact')),
+                            array('label' => 'Post', 'url' => array('/post/index'),'visible'=>Yii::app()->user->id=='CesarIbanez'),
+                            array('label' =>'Category','url'=>array('/category/index'),'visible'=>Yii::app()->user->id=='CesarIbanez'),
+                            array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+                            array('label'=>'Logout ('.Yii::app()->user->name.'['.$access.']'.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+                            array('label'=>'SignUp', 'url'=>array('/site/SignUp'),'visible'=>Yii::app()->user->isGuest)
+                        ),
+                    )); ?>
                 </div>
             </div>
         </div>
