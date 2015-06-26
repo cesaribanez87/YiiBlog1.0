@@ -63,12 +63,15 @@ $this->pageTitle=Yii::app()->name;
             <?php endif;?>
             <hr style="border-color: black">
             <h5 align="center">GitHub Repositories</h5>
-            <ul>
-                <li type="square">Android Fundamentals</li>
-                <li type="square">Yii(Blog)</li>
-                <li type="square">Unity (Soon)</li>
-                <li type="square">Jquery Fundamentals (Soon)</li>
-            </ul>
+            <?php if(!empty($repo)): ?>
+                <ul>
+                <?php foreach($repo as $r): ?>
+                    <li type="square"><a href="<?php echo $r->url; ?>" target="_blank"><?php echo $r->title; ?></a></li>
+                <?php endforeach; ?>
+                </ul>
+            <?php else: ?>
+                No Repo Available.
+            <?php endif; ?>
             <hr style="border-color: black">
             <h5 align="center">Statistics</h5>
             <div align="center">

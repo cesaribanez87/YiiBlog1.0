@@ -75,10 +75,12 @@ class SiteController extends Controller
             )
         );
 
+        $repositories=Repositories::model()->findAll();
+
         $hits= new SiteCounter();
         $vInfo=$hits->getInfo();
 
-        $this->render('index',array('model'=>$model,'hits'=>$vInfo));
+        $this->render('index',array('model'=>$model,'repo'=>$repositories,'hits'=>$vInfo));
 	}
 
 	/**
