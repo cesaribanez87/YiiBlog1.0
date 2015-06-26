@@ -48,12 +48,15 @@ $this->pageTitle=Yii::app()->name;
             <hr>
             <h4 align="center">About Me</h4>
             <hr style="border-color: black">
-            <ul>
-                <li type="square">Facebook</li>
-                <li type="square"><a href="https://twitter.com/LicIbanez87" target="_blank">Twitter+</a></li>
-                <li type="square"><a href="https://plus.google.com/113501108292122101791" target="_blank">Google+</a></li>
-                <li type="square"><a href="https://www.linkedin.com/pub/cesar-alejandro-iba%C3%B1ez-escoto/67/6a5/9bb" target="_blank">LinkedIn</a></li>
-            </ul>
+            <?php if(!empty($social)): ?>
+                <ul>
+                    <?php foreach($social as $s): ?>
+                        <li type="square"><a href="<?php echo $s->url; ?>" target="_blank"><?php echo $s->social; ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php else: ?>
+                No Contact Info Available.
+            <?php endif; ?>
             <h5 align="center">Tags</h5>
             Not Implemented Yet.
             <hr style="border-color: black">

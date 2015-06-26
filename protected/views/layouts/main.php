@@ -77,6 +77,7 @@
                             array('label' => 'Post', 'url' => array('/post'),'visible'=>Yii::app()->user->id=='CesarIbanez'),
                             array('label' =>'Category','url'=>array('/category'),'visible'=>Yii::app()->user->id=='CesarIbanez'),
                             array('label' =>'Repositories','url'=>array('/repositories'),'visible'=>Yii::app()->user->id=='CesarIbanez'),
+                            array('label' =>'Social Contact','url'=>array('/socialContact'),'visible'=>Yii::app()->user->id=='CesarIbanez'),
                             array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                             array('label'=>'Logout ('.Yii::app()->user->name.'['.$access.']'.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
                             array('label'=>'SignUp', 'url'=>array('/site/SignUp'),'visible'=>Yii::app()->user->isGuest)
