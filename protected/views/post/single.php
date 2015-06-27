@@ -18,7 +18,7 @@
 </div>
 
 <label>
-    <?php echo 'Authored by: '.$post->author_name.', date: '.$post->date; ?>
+    <b><?php echo 'Authored by: '.$post->author_name.', date: '.$post->date; ?></b>
 </label>
 
 <p>
@@ -27,9 +27,11 @@
 
 <div style="border-width: 5px; border-style: double; border-color: black;" align="right">
     <label>
-        <?php echo 'Last Update: '.date('Y/m/d h:m:s',$post->modify_date); ?>,
-        <?php echo !empty($post->category->category)?'Category: '.$post->category->category:'Category: N/A'; ?>,
-        Tags: Not Implemented Yet,
+        <b>
+            <?php echo 'Last Update: '.date('Y/m/d h:m:s',$post->modify_date); ?>,
+            <?php echo !empty($post->category->category)?'Category: '.$post->category->category:'Category: N/A'; ?>,
+            Tags: Not Implemented Yet,
+        </b>
     </label>
 </div>
 
