@@ -46,7 +46,9 @@ $this->pageTitle=Yii::app()->name;
         </div>
         <div id="nav">
             <hr>
+
             <h4 align="center">About Me</h4>
+
             <hr style="border-color: black">
             <?php if(!empty($social)): ?>
                 <ul>
@@ -57,10 +59,26 @@ $this->pageTitle=Yii::app()->name;
             <?php else: ?>
                 No Contact Info Available.
             <?php endif; ?>
+
             <h5 align="center">Tags</h5>
-            Not Implemented Yet.
+
+            <?php if(!empty($tags)): ?>
+                <select>
+                    <?php foreach($tags as $t): ?>
+                        <option>
+                            <a>
+                               <?php echo $t->name; ?>
+                            </a>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            <?php else: ?>
+                <?php echo 'No Tags Available.'; ?>
+            <?php endif; ?>
             <hr style="border-color: black">
+
             <h5 align="center">Related Post</h5>
+
             <?php if(!empty($model)): ?>
                 <?php $this->renderPartial('/post/related_posts',array('post'=>$model)); ?>
             <?php endif;?>
@@ -76,7 +94,9 @@ $this->pageTitle=Yii::app()->name;
                 No Repo Available.
             <?php endif; ?>
             <hr style="border-color: black">
+
             <h5 align="center">Statistics</h5>
+
             <div align="center">
                 <label><b>Total Visits</b><label>
                 <br>

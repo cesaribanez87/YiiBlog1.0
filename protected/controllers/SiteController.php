@@ -74,13 +74,13 @@ class SiteController extends Controller
                 'with'=>array('category.posts')
             )
         );
-
+        $tags=Tags::retrieveAllTags();
         $repositories=Repositories::model()->findAll();
         $socialContact=SocialContact::model()->findAll();
         $hits= new SiteCounter();
         $vInfo=$hits->getInfo();
 
-        $this->render('index',array('model'=>$model,'repo'=>$repositories,'social'=>$socialContact,'hits'=>$vInfo));
+        $this->render('index',array('model'=>$model,'tags'=>$tags,'repo'=>$repositories,'social'=>$socialContact,'hits'=>$vInfo));
 	}
 
 	/**

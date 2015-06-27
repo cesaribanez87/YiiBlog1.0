@@ -699,6 +699,10 @@ form.bs-docs-question {
     *width: 180px;
 }
 
+.input, textarea, .uneditable-input {
+    width: 300%;
+}
+
 
 
 

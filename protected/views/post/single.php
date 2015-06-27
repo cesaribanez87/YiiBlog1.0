@@ -6,7 +6,7 @@
  * Time: 04:43 PM
  */
 ?>
-<?php date_default_timezone_set('UTC'); ?>
+<?php date_default_timezone_set('America/Mexico_City'); ?>
 <div>
     <h3><?php echo $post->post_title; ?></h3>
     <?php if(Yii::app()->user->id=='CesarIbanez'): ?>

@@ -21,6 +21,9 @@
     echo Yii::app()->bootstrap->registerCoreScripts();
     ?>
     <?php echo Yii::app()->bootstrap->init();?>
+    <?php
+    Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/main.css');
+    ?>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 

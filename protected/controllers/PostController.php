@@ -63,19 +63,19 @@ class PostController extends Controller
 	public function actionCreate()
 	{
 		$model=new Post;
-
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+        //echo '<pre>'; print_r($_POST); echo '</pre>'; exit;
 		if(isset($_POST['Post']))
 		{
 			$model->attributes=$_POST['Post'];
-			if($model->save())
+			if($model->save()){
                 $date=new DateTime();
                 $model->author_name=Yii::app()->user->id;
                 $model->modify_date=$date->getTimestamp();
                 $model->save();
-				$this->redirect(array('view','id'=>$model->post_ID));
+                $this->redirect(array('view','id'=>$model->post_ID));
+            }
 		}
 
 		$this->render('create',array(
@@ -98,11 +98,14 @@ class PostController extends Controller
 		if(isset($_POST['Post']))
 		{
 			$model->attributes=$_POST['Post'];
-			if($model->save())
+			if($model->save()){
                 $date=new DateTime();
                 $model->modify_date=$date->getTimestamp();
                 $model->save();
-				$this->redirect(array('view','id'=>$model->post_ID));
+                $tag= New Tags();
+                $tag->saveTags($_POST['Post']['tags'],$model->post_ID);
+                $this->redirect(array('view','id'=>$model->post_ID));
+            }
 		}
 
 		$this->render('update',array(

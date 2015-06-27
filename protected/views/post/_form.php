@@ -38,6 +38,15 @@
 	</div>
 
 
+    <div class="row">
+
+        <label>
+            Tags
+        </label>
+        <input type="text" style="width: 200%"  name="Post[tags]">
+    </div>
+
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
