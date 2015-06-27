@@ -28,7 +28,7 @@
 <div style="border-width: 5px; border-style: double; border-color: black;" align="right">
     <label>
         <?php echo 'Last Update: '.date('Y/m/d h:m:s',$post->modify_date); ?>,
-        <?php echo 'Category: '.!empty($post->category->category)?$post->category->category:'N/A'; ?>,
+        <?php echo !empty($post->category->category)?'Category: '.$post->category->category:'Category: N/A'; ?>,
         Tags: Not Implemented Yet,
     </label>
 </div>
