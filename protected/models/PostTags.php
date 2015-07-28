@@ -1,28 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "post".
+ * This is the model class for table "post_tags".
  *
- * The followings are the available columns in table 'post':
- * @property integer $post_ID
- * @property string $post_title
- * @property string $post_content
- * @property string $author_name
- * @property integer $category_id
- * @property string $date
- * @property string $modify_date
+ * The followings are the available columns in table 'post_tags':
+ * @property integer $id
+ * @property integer $tag_id
+ * @property integer $post_id
  *
  * The followings are the available model relations:
- * @property Category $category
+ * @property Post $post
+ * @property Tags $tag
  */
-class Post extends CActiveRecord
+class PostTags extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'post';
+		return 'post_tags';
 	}
 
 	/**
@@ -33,12 +30,11 @@ class Post extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('category_id', 'numerical', 'integerOnly'=>true),
-			array('post_title,author_name', 'length', 'max'=>255),
-			array('post_content, date', 'safe'),
+			array('tag_id, post_id', 'required'),
+			array('tag_id, post_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('post_ID, post_title, post_content, category_id, date,modify_date', 'safe', 'on'=>'search'),
+			array('id, tag_id, post_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,9 +46,8 @@ class Post extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'category' => array(self::BELONGS_TO, 'Category', 'category_id'),
-            'tags' => array(self::MANY_MANY, 'Tags', 'post_tags(post_id,tag_id)'),
-        );
+			'tag' => array(self::BELONGS_TO, 'Tags', 'tag_id'),
+		);
 	}
 
 	/**
@@ -61,12 +56,9 @@ class Post extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'post_ID' => 'Post',
-			'post_title' => 'Post Title',
-			'post_content' => 'Post Content',
-			'category_id' => 'Category',
-			'date' => 'Date',
-            'modify_date' => 'Last Update',
+			'id' => 'ID',
+			'tag_id' => 'Tag',
+			'post_id' => 'Post',
 		);
 	}
 
@@ -88,11 +80,9 @@ class Post extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('post_ID',$this->post_ID);
-		$criteria->compare('post_title',$this->post_title,true);
-		$criteria->compare('post_content',$this->post_content,true);
-		$criteria->compare('category_id',$this->category_id);
-		$criteria->compare('date',$this->date,true);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('tag_id',$this->tag_id);
+		$criteria->compare('post_id',$this->post_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -103,7 +93,7 @@ class Post extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Post the static model class
+	 * @return PostTags the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

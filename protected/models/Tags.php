@@ -44,7 +44,8 @@ class Tags extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'postTags' => array(self::HAS_MANY, 'postTags', 'tag_id'),
+            'posts1'=>array(self::MANY_MANY, 'Post', 'post_tags(tag_id,post_id)'),
+			'postTags' => array(self::HAS_MANY, 'PostTags', 'tag_id'),
 		);
 	}
 

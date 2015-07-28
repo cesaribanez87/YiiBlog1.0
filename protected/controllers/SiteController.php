@@ -71,9 +71,11 @@ class SiteController extends Controller
 
         $model=Post::model()->findAll(
             array(
-                'with'=>array('category.posts')
+                'with'=>array('category.posts','tags.posts1')
             )
         );
+
+        ///echo '<pre>'; print_r($model); echo '</pre>'; exit;
         $tags=Tags::retrieveAllTags();
         $repositories=Repositories::model()->findAll();
         $socialContact=SocialContact::model()->findAll();
