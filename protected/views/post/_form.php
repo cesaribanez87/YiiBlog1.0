@@ -4,6 +4,10 @@
 /* @var $form CActiveForm */
 ?>
 
+<head>
+    <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+    <script>tinymce.init({selector:'textarea'});</script>
+</head>
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
